@@ -5,6 +5,10 @@ inputs:
     description: 'Cache'
     required: false
     default: false
+  aarch64-apple-darwin:
+    description: 'aarch64-apple-darwin'
+    required: false
+    default: false
 runs:
   using: "composite"
   steps: 
@@ -14,6 +18,10 @@ runs:
         profile: minimal
         toolchain: stable
         override: true
+    
+    - name: Install aarch64-apple-darwin target
+      if: ${{ inputs.aarch64-apple-darwin }}
+      run: rustup target add aarch64-apple-darwin
 
     - name: Cache cargo registry
       uses: actions/cache@v3
