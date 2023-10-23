@@ -25,7 +25,8 @@ jobs:
        CIBW_BEFORE_ALL_LINUX: >
          curl https://sh.rustup.rs -sSf | sh -s -- -y && yum install -y openssl-devel zlib-devel
 
-       CIBW_ARCHS_LINUX: "auto64"
+       CIBW_ARCHS_LINUX: "x86_64"
+       CIBW_ARCHS_MACOS: "universal2"
        CIBW_ENVIRONMENT: 'PATH="$PATH:$HOME/.cargo/bin"'
        CIBW_SKIP: "pp* *-win32 *-musllinux*"
        CIBW_BUILD: ${{ matrix.python_version }}
