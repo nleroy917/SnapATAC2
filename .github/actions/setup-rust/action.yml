@@ -21,6 +21,7 @@ runs:
     
     - name: Install aarch64-apple-darwin target
       if: ${{ inputs.aarch64-apple-darwin }}
+      shell: bash
       run: rustup target add aarch64-apple-darwin
 
     - name: Cache cargo registry
